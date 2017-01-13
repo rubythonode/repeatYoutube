@@ -1,0 +1,128 @@
+@(message: String)
+
+@import play.i18n._
+
+@main(message) {
+<div class="mainCenter">
+	<div id="topPan">
+	<div id="ImgPan" class="pt_margin10"><a href="/index.jsp" ><h1>Youtube Repeat</h1></a> </div>
+	</div>
+	
+	<div class="rightBodyPan fixed_img_row">
+		<ul id="youtubeRightList"></ul>
+	</div>  
+	
+	<div class="leftBodyPan fixed_nonimg_row" data-bind="with: groupListData" style="height:1000px; overflow-y:auto; padding-right:5px;">
+		<p class="toptextpadding" style="text-align:right">
+			<input data-bind="value: $parent.groupText, returnKey:$root.searchgrouplist"" id="playListSeachTitle" class="i_text uid width200px pb_margin5" type="text" /> 
+			<button class="btnSearch1 pb_margin5" data-bind="click: $root.searchgrouplist">
+				<span class="searchImage"></span>
+			</button>
+		</p>
+		<ul id="youtubeLeftList" data-bind="foreach: grouplist">
+			<li>
+			    <a href="#" data-bind="click: $root.findPlayList">
+			    	<strong data-bind="text: title">title</strong>
+			    </a>
+	    		<p>descrpition</p>
+			</li>
+		</ul>
+	</div>
+	
+	<div id="bodyPan">
+		<p class="toptextpadding"><div id="player"></div></p>
+	</div>
+	
+	<div id="bodyPan">
+		<p class="toptextpadding" style="text-align:right">
+			<input id="searchName" class="i_text uid" type="text" value="you got it"/>
+			<button class="btnSearch1" onclick="clickSearchYoutube()">
+				<span class="searchImage"></span>
+			</button>
+		</p>
+	</div>
+	
+	<div id="bodyMiddlePan">
+		<div class="fixed_img_row">
+			<ul id="youtubeList">
+		    </ul>
+		</div>
+	</div>
+	
+	<div id="bodyPan" style="margin-top:10px;text-align:right">
+		<a href="#" class="btn2_big" onclick="prevPage();"><span>@Messages.get("btn.prev")</span></a>
+		<a href="#" class="btn2_big" onclick="nextPage();"><span>@Messages.get("btn.next")</span></a>
+	</div>
+	
+	<div id="pop_group" class="pop_wrap" style="top:100px;left:20px;width:260px">
+	    <div class="pop_content">
+	        <form action="" method="post">
+	            <h4 id="pop_group_header" class="ly_header">@Messages.get("title.youtube.list")</h4>
+	            <fieldset>
+	                <legend>@Messages.get("title.youtube.list")</legend>
+	                <dl id="group_div_body" class="ly_body">
+	                <dt>@Messages.get("title.youtube.list.now")</dt>
+	                </dl>
+	                <div class="pop_footer">
+		                <a id="pop_removeItems" class="btn2_sml"><span>@Messages.get("btn.play.del")</span></a>
+		                <a id="pop_autoplay" class="btn2_sml"><span>@Messages.get("btn.play.all")</span></a>
+		                <a id="pop_oneplay" class="btn2_sml"><span>@Messages.get("btn.play.one")</span></a>
+		                <a id="pop_close" class="btn2_sml"><span>@Messages.get("btn.close")</span></a>
+		                <a id="pop_new" class="btn2_sml"><span>@Messages.get("btn.new")</span></a>
+		                <a id="pop_save" class="btn2_sml"><span>@Messages.get("btn.save")</span></a>
+		                <a id="pop_mp3download" class="btn2_sml"><span>mp3 다운로드</span></a>
+	                </div>
+	                <a href="#" onclick="document.getElementById('pop_group').style.display='none';return false" class="close_layer"><img src="http://static.naver.com/common/btn/btn_close2.gif" alt="레이어닫기" height="14" width="15"></a>
+	            </fieldset>
+	        </form>
+	    </div>
+	    <span class="shadow shadow2"></span><span class="shadow shadow3"></span><span class="shadow shadow4"></span>
+	</div>
+	
+	<!-- music_count analysis -->
+	<!-- <div id="pop_music_count" data-bind="with: musicCountListData" class="pop_wrap" style="top:100px;left:20px;width:500px">
+	    <div class="pop_content">
+	        <form action="" method="post">
+	            <h4 id="pop_group_header" class="ly_header">저장된 곡 중 가장 많이 본 Best 5곡</h4>
+	            <fieldset>
+	                <legend>가장 많이 들은 최신 5곡</legend>
+	                <dl id="group_div_body" class="ly_body" data-bind="foreach: musiccount">
+	                
+	                <dd class="overflow_ellipsis400" >
+	                	<label style="cursor:pointer" data-bind="text: title"></label>
+	                	<label style="cursor:pointer" data-bind="text: size"></label>
+	                </dd>
+	                
+	                </dl>
+	                <a href="#" onclick="document.getElementById('pop_music_count').style.display='none';return false" class="close_layer"><img src="http://static.naver.com/common/btn/btn_close2.gif" alt="레이어닫기" height="14" width="15"></a>
+	            </fieldset>
+	        </form>
+	    </div>
+	    <span class="shadow shadow2"></span><span class="shadow shadow3"></span><span class="shadow shadow4"></span>
+	</div>-->
+	
+	<!-- UI Object -->
+	<div id="mw_temp" class="mw">
+	    <div class="bg"></div>
+	    <div class="fg">
+	        <p>
+	        	<input id="listTitle" class="i_text uid width350px" type="text" value="타이틀"/>
+	        </p>
+	        <p>
+	        	<input id="listPass" class="i_text uid width350px" type="password" value="패스워드"/>
+	        </p>
+	        <p style="text-align:right">
+	        <button type="button" onclick="newlist();">@Messages.get("btn.save")</button>
+	        <button type="button" onclick="document.getElementById('mw_temp').style.display='none'">@Messages.get("btn.close")</button>
+	        </p>
+	    </div>
+	</div>
+	<!-- //UI Object -->
+	
+<div id="footermainPan">
+  <div id="footerPan">
+  	<h2>유튜브 반복재생</h2>
+  	<p>환영합니다. 유튜브를 반복 재생해서 들을 수 있으며, 좋아하는 노래를 그룹화 하여 반복 재생을 할 수 있습니다.</p>
+  </div>
+</div>
+}

@@ -1,0 +1,8 @@
+var SPARATOR1 = "\u0002";
+
+var YGRLR_SPARATOR1 = "YGRLOCALSTORAGY";
+
+var LABEL_SPARATOR1 = "LABEL_";
+
+var PLAYTYPE_ONE = "item";
+var PLAYTYPE_AUTO = "items";

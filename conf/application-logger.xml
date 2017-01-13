@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    
+  <conversionRule conversionWord="coloredLevel" converterClass="play.api.Logger$ColoredLevel" />
+  
+  <appender name="FILE1" class="ch.qos.logback.core.FileAppender">
+     <file>${application.home}/logs/one.log</file>
+     <encoder>
+       <pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
+     </encoder>
+   </appender>
+   
+  <appender name="FILE2" class="ch.qos.logback.core.FileAppender">
+     <file>${application.home}/logs/event.log</file>
+     <encoder>
+       <pattern>%message%n</pattern>
+     </encoder>
+  </appender>
+  
+  <appender name="FILE3" class="ch.qos.logback.core.FileAppender">
+     <file>${application.home}/logs/application.log</file>
+     <encoder>
+       <pattern>%date - [%level] - from %logger in %thread %n%message%n%xException%n</pattern>
+     </encoder>
+   </appender>
+   
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%coloredLevel %logger{15} - %message%n%xException{5}</pattern>
+    </encoder>
+  </appender>
+  
+  <logger name="play" level="INFO" />
+  
+  <logger name="controllers.Repeat" level="INFO" >
+  	<appender-ref ref="FILE2" />
+  </logger>
+  
+    <logger name="controllers.Application" level="INFO" >
+  	<appender-ref ref="FILE3" />
+  </logger>
+
+  <root level="ERROR">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE1" />
+  </root>
+  
+</configuration>

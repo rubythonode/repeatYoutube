@@ -1,0 +1,20 @@
+.cloud_bar{
+    position: fixed;   
+    width: 265px;
+    z-index: 1;
+}
+
+.boxtop {
+	background: url(../images/layer/boxtop.png) no-repeat; 
+	padding: 4px 0;
+}
+.boxmiddle {
+	background: url(../images/layer/boxmiddle.png); 
+	padding: 0 4px; 
+	height: 220px;
+}
+.boxbottom {
+	background: url(../images/layer/boxbottom.png) no-repeat left bottom; 
+	padding: 5px 0;
+}
+

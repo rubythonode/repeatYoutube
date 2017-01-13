@@ -1,0 +1,16 @@
+btn.next=다음
+btn.prev=이전
+btn.close=닫기
+btn.save=저장
+btn.new=생성
+btn.play.all=연속재생
+btn.play.one=한곡듣기
+btn.play.del=삭제
+btn.melon = 멜론
+
+title.youtube.list=유튜브 리스트
+title.youtube.list.now=나의 유튜브 리스트
+title.youtube.list.all=나의 유튜브 리스트 (연속듣기)
+title.youtube.list.one=나의 유튜브 리스트 (한곡듣기)
+
+alert.message.firstpage=첫 페이지

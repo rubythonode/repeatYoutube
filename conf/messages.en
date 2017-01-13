@@ -1,0 +1,17 @@
+btn.next=next
+btn.prev=prev
+btn.close=close
+btn.save=save
+btn.new=new
+btn.play.all=all repeat
+btn.play.one=one repeat
+btn.play.del=delete
+btn.melon = melon
+
+title.youtube.list=youtube list
+title.youtube.list.now=my youtube list
+title.youtube.list.all=my youtube list (all repeat)
+title.youtube.list.one=my youtube list (one repeat)
+
+
+alert.message.firstpage=first page

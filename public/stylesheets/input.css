@@ -1,0 +1,14 @@
+.i_text{
+	line-height: 32px;
+	height: 32px;
+	background: 0;
+	font: inherit;
+	padding: 0 7px;
+	position: relative;
+	z-index: 10;
+	overflow: auto;
+	width: 400px;
+	border-radius: 2px 2px 2px 2px;
+	border: 1px solid;
+	border-color: #ccc;
+}

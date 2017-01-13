@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+GET     /mobile                     controllers.Application.mobileIndex()
+
+POST	/repeat/save				controllers.Repeat.save()
+POST	/repeat/newlist				controllers.Repeat.newlist()
+POST	/repeat/grouplist			controllers.Repeat.grouplist()
+GET	    /mobile/grouplisthtml	    controllers.Repeat.grouplisthtml()
+POST	/mobile/grouplisthtml	    controllers.Repeat.grouplisthtml()
+POST	/repeat/playlist			controllers.Repeat.playlist()
+GET 	/mobile/playlisthtml		controllers.Repeat.playlisthtml()
+POST	/mobile/playlisthtml		controllers.Repeat.playlisthtml()
+GET 	/mobile/playerhtml		    controllers.Repeat.playerhtml()
+POST	/mobile/playerhtml		    controllers.Repeat.playerhtml()
+
+POST	/repeat/searchgrouplist		controllers.Repeat.searchgrouplist()
+POST	/repeat/logplay				controllers.Repeat.logplay()
+POST    /repeat/download			controllers.Repeat.mDownLoad()
+POST    /repeat/filedownload		controllers.Repeat.fileDownLoad()
+
+POST	/analysis/viewmusiccount	controllers.Analysis.viewmusiccount()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
